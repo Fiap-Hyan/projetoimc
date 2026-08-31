@@ -29,13 +29,13 @@ const App = () => {
 
   return (
     // FRAGMENTS <> </>
-    <main className="container">
-      <div className="box">
+    <main className="min-h-screen bg-gray-400 ">
+      <div className="bo">
         <Header />
-        <form>
+        <form className='py-6'>
           <div>
-            <label htmlFor="altura">Altura <span className="span">(ex.1.80)</span></label>
-            <input
+            <label className='rounded-sm border px-6 bg-red-500 font-bold ' htmlFor="altura">Altura</label>
+            <input className='rounded-sm border-2  text-center m-3 bg-red-400'
               id="altura"
               type="number"
               step="0.01"// permite o usuaro de ponto/virgula decimais

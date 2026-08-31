@@ -4,9 +4,10 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <section className="header">
-        <h1>Calculadora IMC</h1>
-
+    <section className="w-full bg-blue-500 py-4 shadow-md">
+      <div className="max-w-4xl mx-auto text-center">
+        <h1 className="text-3xl font-bold text-gray">Calculadora IMC</h1>
+      </div>
     </section>
   )
 }

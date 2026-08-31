@@ -18,28 +18,34 @@ const resultado = ({resultado}) => {
 //Função parseFloat pega variavel resultado e converte em float
   const valor =parseFloat(resultado);
   return (
-    <section className="imc-container">
-      <table border="1" className="imc-table">
-        <thead>
-          <tr>
-            <th>Classificação</th>
-            <th>IMC</th>
-          </tr>
-        </thead>
-        <tbody>
-          {TABELA_IMC.map((item,index)=>{
-            const limitAnterior = index > 0 ? TABELA_IMC[index - 1].limite:0; 
-            const isAtivo = !isNaN(valor) && valor >= limitAnterior && valor < item.limite;
+    <section className="w-full max-w-xl mx-auto my-6 px-4 ">
+      <div className="overflow-hidden rounded-xl shadow-xl border bg-gray-300 ">
+        <table className="w-full text-left text-sm text-gray-700 divide-y divide-black">
+          <thead className='bg-blue-200 text-black uppercase text-xs font-semibold'>
+            <tr>
+              <th className='py-3 px-6 '>Classificação</th>
+              <th className='py-3 px-6 '>IMC</th>
+            </tr>
+          </thead>
+          <tbody className='divide-y divide-black'>
+            {TABELA_IMC.map((item,index)=>{
+              const limitAnterior = index > 0 ? TABELA_IMC[index - 1].limite:0; 
+              const isAtivo = !isNaN(valor) && valor >= limitAnterior && valor < item.limite;
 
-            return(
-              <tr key={item.id} className={isAtivo ? "destaque": ""}>
-                <td>{item.classificacao}</td>
-                <td>{item.faixa}</td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
+              return(
+                <tr key={item.id}
+                  className={`transition-colors duration-200 
+                                  ${isAtivo
+                      ? "bg-amber-500 font-bold text-black border-blue-200"
+                      : "hover-bg-gray-200 text-gray-700"}`}>
+                  <td className='py-3 px-6'>{item.classificacao}</td>
+                  <td className='py-3 px-6'>{item.faixa}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
     </section>  
   )
 }
